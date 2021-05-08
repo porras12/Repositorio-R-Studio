@@ -16,9 +16,6 @@ groceries <- read.table("C:/Users/33559/OneDrive/3. Universidad Hispanoamericana
 
 ##Boxplot
 
-?boxplot
 boxplot(financials$Price ~ financials$Sector)
-
-
-
+# Boxplot muestra tendencias centrales de los precios similares entre sectores, con algunos puntos atíppicos para el caso de Consumer Discretionary
 
