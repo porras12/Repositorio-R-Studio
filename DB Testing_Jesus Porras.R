@@ -28,11 +28,16 @@ etl <- DBI::dbConnect(odbc::odbc(),
 
 
 #install.packages("dbplyr")
+#install.packages("RSQLite")
+#install.packages("sqldf")
 library(dbplyr)
 
-comercio =  data.frame(tbl(con, "Orders Qry"))
-plot(as.factor(comercio$Country))
+#comercio =  data.frame(tbl(con, "Orders Qry"))
+#plot(as.factor(comercio$Country))
 
+##Consultas en SQL
 
+consulta1<-dbGetQuery(etl,"SELECT * from Proyecto_1_Jesus_Porras.Sales")
+View(consulta1)
 
 
