@@ -41,3 +41,10 @@ consulta1<-dbGetQuery(etl,"SELECT * from Proyecto_1_Jesus_Porras.Sales")
 View(consulta1)
 
 
+plot(consulta1$total_amount, consulta1$sales_id, fill = consulta1$sales_id)
+
+
+
+
+
+
