@@ -31,6 +31,7 @@ var_Edad_cocaine <- select(drugs, age, cocaine.use)
 var_Edad_Crack <- rename(var_Edad_Crack, Use = crack.use)
 var_Edad_cocaine <- rename(var_Edad_cocaine, Use = cocaine.use)
 
+##Funcion
 Nombrar <- function(x) {
   as.character(x)
 }
@@ -42,6 +43,9 @@ Compilado_Crack_Cocaine <- union(var_Edad_Crack, var_Edad_cocaine)
 library(ggplot2)
 ggplot(Compilado_Crack_Cocaine, aes(x = age, y = Use, group = Uso, color = Uso)) +
   geom_line() + geom_point()
+##Se aprecian valores de uso en el caso del crack, con una menor variación en comparación con los valores del uso del cocaina,
+##los cuales tienen una mayor incidencia en edades cercanas a los 20 años
+
 
 #Plot 3
 var_Edad_Alucinojeno <- select(drugs, age,hallucinogen.use)
