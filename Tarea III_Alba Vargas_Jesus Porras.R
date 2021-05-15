@@ -22,15 +22,21 @@ drugs <- DBI::dbConnect(odbc::odbc(),
 drugs<-dbGetQuery(drugs,"SELECT * from drugs")
 View(drugs)
 
-plot(drugs$marihuana_use,drugs$hallucigenon_use)
+plot(drugs$marihuana_use,drugs$hallucigenon_use, xlab = "Marihuana use", ylab = "Hallucigenon use", main = "Marihuana vs Hallucigenon")
 
-regresion <- lm(drugs$marihuana_use~drugs$hallucigenon_use)
+regresion <- lm(drugs$hallucigenon_use~drugs$marihuana_use)
+
+##y = mx + b
+
+m = regresion[["coefficients"]][["drugs$marihuana_use"]]
+
+b = regresion[["coefficients"]][["(Intercept)"]]
+
 View(regresion)
-plot(regresion)
 
-x = c(0:9)
-y = x*regresion[["coefficients"]][["(Intercept)"]]
-plot(x,y,type = "l")
+x = c(0:35)
+y = x*m + b
+plot(x,y,type = "l", main = "Regresión lineal", xlab="Marihuana use", ylab="Hallucigenon use")
 
 
 library("ggplot2")
@@ -59,7 +65,7 @@ Compilado_Sedative_Tranquilizer <- union(var_Edad_Tranquilizer, var_Edad_Sedativ
 ggplot(Compilado_Sedative_Tranquilizer, aes(x = age, y = Frecuencia_de_uso, fill = Type)) +
   geom_bar(stat="Identity", position = "dodge") + ggtitle("Comparison Tranquilizers vs Sedative") +
   xlab("User Age") + ylab("Frequency")
-
+  
 
 ##Plot3
 var_frequencia_uso <- select(drugs, age, heroin_use, heroin_frecuency)
