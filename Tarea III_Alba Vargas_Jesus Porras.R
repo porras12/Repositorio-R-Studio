@@ -7,7 +7,7 @@ rm(list=ls())
 
 library("DBI")
 library("odbc")
-library(dbplyr)
+library("dbplyr")
 
 drugs <- DBI::dbConnect(odbc::odbc(),
                             Driver = "SQL Server",
@@ -48,9 +48,6 @@ ggplot(drugs, aes(y = marihuana_use, x = hallucigenon_use)) +
 
 
 -----------------------------------------------------------------------
-  
-  
-
   
 ##Plot2
 library("dplyr")
