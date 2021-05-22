@@ -53,7 +53,7 @@ ggplot(drugs, aes(y = marihuana_use, x = hallucigenon_use)) +
 regresion_drugs = lm(marihuana_use~hallucigenon_use, data = drugs)
 
 ##Generamos una muestra de 50 valores con valores de
-##hallucigenon_use entre 2 y 8
+##hallucigenon_use entre 2,0 y 8,0
 
 muestra_hallucigenon = data.frame(hallucigenon_use = c(sample(20:80,50,replace = TRUE))/10)
 prediccion_drugs = predict(regresion_drugs,muestra_hallucigenon)
